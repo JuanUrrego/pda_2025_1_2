@@ -9,11 +9,10 @@ setup(
     py_modules=["actividad1","actividad2"],
     install_requires=[
         "pandas",
+        "openpyxl",
         "requests",
-        "BeautifulSoup",
-        "streamlit",
-        "datetime",
-        "openpyxl"
+        "beautifulsoup4",
+        
 
     ]
 

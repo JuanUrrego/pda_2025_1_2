@@ -50,7 +50,7 @@ for tabla in tablas:
             'País': pais,
             'Categoría': categoria,
             'Motivación': motivacion,
-            'Fecha_Scraping': fecha_scraping  # Agregar fecha de scraping
+            'Fecha_Scraping': fecha_scraping
         })
 
 # Convertir a DataFrame

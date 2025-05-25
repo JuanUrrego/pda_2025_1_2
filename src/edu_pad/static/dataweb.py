@@ -55,10 +55,10 @@ class DataWebWikipedia:
                     })
 
             df = pd.DataFrame(datos)
-            print("✅ Datos extraídos con éxito.")
+            print("Datos extraídos con éxito.")
             print(df.head())
             return df
 
         except Exception as e:
-            print("❌ Error al obtener los datos:", e)
+            print("Error al obtener los datos:", e)
             return pd.DataFrame()

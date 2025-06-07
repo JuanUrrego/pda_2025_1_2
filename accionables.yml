@@ -1,4 +1,4 @@
-name: accionables
+name: accionables_windows
 
 on:
   push:

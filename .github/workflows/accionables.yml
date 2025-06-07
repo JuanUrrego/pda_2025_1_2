@@ -1,4 +1,4 @@
-name: accionables
+name: accionables_linux
 
 on:
   push:

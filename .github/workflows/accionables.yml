@@ -21,6 +21,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           password: ${{ secrets.DOCKER_HUB_USERNAME }}
+
+      - name: Paso 2.1 - Configurar imagen docker
+        run: docker build -t python-hello .
+
+      - name: Paso 2.2 ejecutar imagen
+        run: docker run --rm python-hello
+      
         
       - name: Paso 3 - Setup Python
         uses: actions/setup-python@v5

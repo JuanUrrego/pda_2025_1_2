@@ -6,7 +6,7 @@ setup(
     author="Juan Diego UG",
     author_email="juan.urrego@est.iudigital.edu.co",
     description="Curso programación para analisis de datos 2025-1",
-    py_modules=["actividad1","actividad2"],
+    py_modules=["actividad1","actividad2","actividad3"],
     install_requires=[
         "pandas",
         "openpyxl",

@@ -4,12 +4,12 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
 
     steps:
 
@@ -25,26 +25,37 @@ jobs:
       - name: Paso 2.1 - Configurar imagen docker
         run: docker build -t python-hello .
 
-      - name: Paso 2.2 ejecutar imagen
+      - name: Paso 2.2 - Ejecutar imagen docker
         run: docker run --rm python-hello
-      
-        
+
       - name: Paso 3 - Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.9'
           check-latest: false
-      - name: Paso 4 - crea entorno virtual
+
+      - name: Paso 4 - Crear entorno virtual
         run: python -m venv venv
-      - name: Paso 5 - activar entorno virtual
-        run: source ./venv/bin/activate 
-      - name: Paso 6 - actualizar pip
+
+      - name: Paso 5 - Activar entorno virtual
+        run: source ./venv/bin/activate
+
+      - name: Paso 6 - Actualizar pip
         run: pip install --upgrade pip
-      - name: Paso 7 - instalar dependencias
+
+      - name: Paso 7 - Instalar dependencias
         run: pip install -e .
+
       - name: Paso 8 - Ejecutar Main
         run: python src/edu_pad/static/main.py
-      - name: Paso 9 - Guardar el commit con el ultimo cambio desde pipeline
+
+      - name: Paso 9 - Hacer pull con rebase antes del commit
+        run: |
+          git config --global user.name 'Juan Urrego [GitHub Actions]'
+          git config --global user.email 'juan.urrego@est.iudigital.edu.co'
+          git pull --rebase origin main
+
+      - name: Paso 10 - Guardar el commit con el último cambio desde pipeline
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Genera archivo csv de la web
